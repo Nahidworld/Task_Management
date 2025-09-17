@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class TaskListServiceImpl implements TaskListService {
@@ -31,7 +33,7 @@ public class TaskListServiceImpl implements TaskListService {
             throw new IllegalArgumentException("Task List title is required");
         }
         LocalDateTime now = LocalDateTime.now();
-        taskListRepository.save(new TaskList(
+        return taskListRepository.save(new TaskList(
                 null,
                 taskList.getTitle(),
                 taskList.getDescription(),
@@ -39,7 +41,11 @@ public class TaskListServiceImpl implements TaskListService {
                 now,
                 now
         ));
-        return null;
+    }
+
+    @Override
+    public Optional<TaskList> getTaskList(UUID id) {
+        return taskListRepository.findById(id);
     }
 
 
