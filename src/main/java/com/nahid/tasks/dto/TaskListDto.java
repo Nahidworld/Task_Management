@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 public record TaskListDto(
-        UUID id,
+        Long id,
         String title,
         String description,
         Integer count,

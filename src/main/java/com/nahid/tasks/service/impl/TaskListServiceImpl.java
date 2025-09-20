@@ -44,7 +44,7 @@ public class TaskListServiceImpl implements TaskListService {
     }
 
     @Override
-    public Optional<TaskList> getTaskList(UUID id) {
+    public Optional<TaskList> getTaskList(Long id) {
         return taskListRepository.findById(id);
     }
 

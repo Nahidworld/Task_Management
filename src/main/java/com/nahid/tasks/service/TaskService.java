@@ -21,7 +21,6 @@ public class TaskService {
 
     public void createTask(){
         Task task = new Task();
-        task.setId(UUID.randomUUID());
         task.setTitle("Task 1");
         task.setDescription("Task Description");
         task.setDueDate(LocalDateTime.now());
@@ -29,10 +28,9 @@ public class TaskService {
         taskRepository.save(task);
     }
 
-    public void updateTask(UUID id){
+    public void updateTask(Long id){
         Optional<Task> optionalTask = taskRepository.findById(id);
         Task task = new Task();
-        task.setId(UUID.randomUUID());
         task.setTitle("Task 2");
         task.setDescription("Task Description");
         task.setDueDate(LocalDateTime.now());

@@ -18,13 +18,11 @@ import java.util.UUID;
 @Table(name = "tasks")
 public class Task {
 
+
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id", updatable = false, nullable = false)
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+    private Long id;
 
     @Column(name = "title", nullable = false)
     private String title;
